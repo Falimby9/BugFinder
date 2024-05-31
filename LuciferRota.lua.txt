@@ -1142,7 +1142,7 @@ function buyCloth()
     if #currentClothes < 4 then 
         local itemA = {} 
         for _,items in pairs(bot:getInventory():getItems()) do 
-            table.insert(itemd, items.id)
+            table.insert(itemA, items.id)
             if items.isActive then 
                 table.insert(currentClothes, items.id)
             end
