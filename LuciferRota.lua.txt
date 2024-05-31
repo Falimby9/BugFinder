@@ -3,6 +3,7 @@ for i,Bots in pairs(getBots()) do
     if Bots.name:upper() == getBot().name:upper() then 
         indexBot = i 
     end
+    indexLast = i
 end
 
 bot = getBot() 
