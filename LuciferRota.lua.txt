@@ -431,8 +431,14 @@ function reconnectHarvest(world,door)
             takeItem(worldPick,doorPick,98,1)
         end
         while not bot:isInWorld(world:upper()) do 
-            warp(world,door)
-            sleep(100)
+            bot:sendPacket(3,"action|join_request\nname|"..world:upper().."\ninvitedWorld|0")
+            sleep(delayWarp)
+        end
+        if id ~= "" and bot:getWorld():getTile(bot.x,bot.y).fg == 6 then 
+            bot:sendPacket(3,"action|quit_to_exit")
+            sleep(1000)
+            bot:sendPacket(3,"action|join_request\nname|"..world:upper().."|"..door:upper().."\ninvitedWorld|0")
+            sleep(2000)
         end
     end
 end
